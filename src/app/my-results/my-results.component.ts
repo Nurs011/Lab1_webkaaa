@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-my-results',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-results.component.css']
 })
 export class MyResultsComponent implements OnInit {
+  @Input() tableData;
+  @Output() doTableEmpty = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clickNewBtn(): void {
+    this.doTableEmpty.emit();
   }
 
 }
